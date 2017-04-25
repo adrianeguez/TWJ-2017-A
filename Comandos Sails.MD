@@ -14,8 +14,7 @@ Donde **Aplicacion** es el nombre de la carpeta y de la aplicacion que vamos a c
 
 ## sails lift
 
-El comando **lift** nos ayuda a levantar un proyecto de **sails**.
-```
+|```
 >> sails lift
 ```
 
