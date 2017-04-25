@@ -34,6 +34,41 @@ Las herramientas que vamos a usar son:
 ![imagen de github](https://assets-cdn.github.com/images/modules/open_graph/github-octocat.png)
 
 
+## Codigo
+
+Para utilizar codigo necesitamos tres tildes al reves  ``` tanto al inicio como al final de el codigo que vamos a escribir.
+
+```
+String hola = "Hola Mundo" 
+```
+
+```
+>> sails new Aplicacion
+>> cd Aplicacion
+>> sails lift
+2
+```
+Escogemos la opcion 2 y damos enter
+
+
+```javascript
+var a =5;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Header 2
 
