@@ -25,6 +25,29 @@ Este comando **detiene** los o el  contenedor que este **corriendo**.
 ```
 
 
+## docker start 'id' o 'nombre'
+
+Este comando **levanta** los o el  contenedor que este **detenido**.
+```
+>> docker start 12mMC232udD micontenedor
+>> docker start 12
+>> docker start m
+>> docker start 12 mi
+```
+
+## docker rm 'id' o 'nombre'
+
+Este comando **elimina** los o el  contenedor que esten **detenido**.
+```
+>> docker rm 12mMC232udD micontenedor
+>> docker rm 12
+>> docker rm m
+>> docker rm 12 mi
+```
+
+* No se puede **borrar** los contenedores que esten corriendo.
+
+
 ## Mysql
 
 Para utilizar docker con mysql vamos a utilizar el siguiente comando:
