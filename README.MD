@@ -95,6 +95,13 @@ La clave del usuario **creado**
 
 
 
+## Postgresql
+
+```
+>> docker run --name postgresadrian -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=adrian -e POSTGRES_DB=politecnica -p 5432:5432 -d postgres
+```
+
+
 
 
 
