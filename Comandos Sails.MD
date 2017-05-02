@@ -14,8 +14,17 @@ Donde **Aplicacion** es el nombre de la carpeta y de la aplicacion que vamos a c
 
 ## sails lift
 
-|```
+```
 >> sails lift
+```
+
+- Debemos de estar **dentro de la carpeta** del proyecto de sails
+
+
+## sails generate api
+
+```
+>> sails generate api <nombreModelo>
 ```
 
 - Debemos de estar **dentro de la carpeta** del proyecto de sails
