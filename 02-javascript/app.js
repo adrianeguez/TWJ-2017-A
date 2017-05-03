@@ -1,3 +1,7 @@
-/**
- * Created by USRDEL on 3/5/17.
+/*
+    comentarios de varias lineas
  */
+
+// Comentarios una sola linea
+
+console.log('Hello Kitty');
