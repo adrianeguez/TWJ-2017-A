@@ -21,4 +21,4 @@ var htmlES5 = "<h1>Hola "+nombreUsuario+"</h1>"
     +"<p>Hola maigos como estan </p>"
 
 
-htmlES5
+htmlES6
