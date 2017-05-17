@@ -18,9 +18,10 @@ export class AppComponent {
   constructor(){
     console.log("Constructor");
     this.holaMundo();
-    this.saludar(this.usuario.nombre,
+    console.log(
+      this.saludar(this.usuario.nombre,
       this.usuario.apellido
-    );
+    ));
   }
 
   holaMundo(){
