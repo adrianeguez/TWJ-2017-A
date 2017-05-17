@@ -10,7 +10,10 @@ export class AppComponent {
   usuario:UsuarioInt = {
     nombre:"Adrian",
     apellido:"Eguez"
-  }
+  };
+
+  url:string="https://angular.io";
+  src:string="https://angular.io/resources/images/logos/angular/angular.png"
 
   constructor(){
     console.log("Constructor");
