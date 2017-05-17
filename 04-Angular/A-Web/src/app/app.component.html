@@ -1,5 +1,14 @@
 <h1>Mi primer aplicacion en Angular</h1>
 
-<p>Gracias por visitarnos</p>
+SI HACER ESTO
+<p>Gracias por visitarnos {{usuario.nobre}} {{usuario.apellido}}</p>
 
-<h3>Desarrollado por {{usuario.nombre}}</h3>
+NO HACER ESTO
+<h3>Desarrollado por {{
+  saludar(usuario.nombre,usuario.apellido)}}
+
+</h3>
+
+NO HACER ESTO
+<h3>{{usuario.nombre +" " + usuario.apellido}}
+</h3>
