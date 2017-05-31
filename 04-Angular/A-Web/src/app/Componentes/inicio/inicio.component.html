@@ -1,0 +1,280 @@
+
+<div class="container">
+
+  <h1>Bienvenidos</h1>
+
+  <h2>Usuarios Conectados</h2>
+
+  <div class="row">
+
+    <div class="col-sm-4" *ngFor="let usuario of arregloUsuarios">
+
+      <div class="card" style="width: 20rem;">
+        <div class="card-block">
+          <h4 class="card-title">{{usuario.nombre}} - {{usuario.conectado}}</h4>
+          <p class="card-text">{{usuario.nombre}} + {{usuario.apellido}}</p>
+          <a href="#" class="btn btn-primary btn-block">Ir a Perfil</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<!--
+  <div>
+    <ul>
+      <li *ngFor="let usuario of arregloUsuarios">{{usuario.nombre}}</li>
+    </ul>
+  </div>
+-->
+
+  <p *ngIf="true">TRUE</p>
+
+  <p *ngIf="false">FALSE</p>
+
+  <p *ngIf="undefined">UNDEFINED</p>
+  
+  <p *ngIf="null">NULL</p>
+  <p *ngIf="0">CERO</p>
+  <p *ngIf="nombre">NOMBRE</p>
+
+
+
+</div>
+
+
+
+<!--
+<input placeholder="Ingrese Texto" type="text" [value]="nombre" #nombreEtiqueta>
+-->
+
+
+
+<!-- .row>.col
+
+
+
+  <input placeholder="Ingrese Texto" type="text"  [(ngModel)]="nombre">
+
+  {{nombre}}
+
+  <img [src]="nombre" alt="">
+
+
+  <br>
+
+  <button class="btn btn-primary" (click)="cambiarNombre()"> Cambiar Valor</button>
+
+  <button (blur)="cambiarOtroNombre()">Clickeame</button>
+
+
+  <h1 (click)="cambiarNombreInput(nombreEtiqueta)">Lenin a Rafico</h1>
+
+<div class="row">
+  <div style="background-color:red;"
+       class="col-sm-6">
+    ROJO
+  </div>
+  <div style="background-color:red;"
+       class="col-sm-6">
+    ROJO
+  </div>
+
+
+
+  <div style="background-color:blue;"
+       class="col-md-4">
+    AZUL
+  </div>
+  <div style="background-color:blue;"
+       class="col-md-4">
+    AZUL
+  </div>
+  <div style="background-color:blue;"
+       class="col-md-4">
+    AZUL
+  </div>
+
+
+
+
+  <div style="background-color:yellow;"
+       class="col-lg-7">
+    AMARILLO
+  </div>
+  <div style="background-color:yellow;"
+       class="col-lg-5">
+    AMARILLO
+  </div>
+
+
+
+  <div style="background-color:green;"
+       class="col-xl-6">
+    VERDE
+  </div>
+  <div style="background-color:green;"
+       class="col-xl-3">
+    VERDE
+  </div>
+  <div style="background-color:green;"
+       class="col-xl-2">
+    VERDE
+  </div>
+  <div style="background-color:green;"
+       class="col-xl-1">
+    VERDE
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div style="background-color: yellow" class="row">
+  <div style="background-color: black" class="col-md-6">COL6</div>
+
+  <div style="background-color: black" class="col-md-6">
+    COL6
+    <div style="background-color: yellow" class="row">
+      <div style="background-color: red" class="col-md-12">
+        COL-12
+        <div style="background-color: yellow" class="row">
+          <div style="background-color: blue" class="col-md-4">
+            COL4
+          </div>
+          <div style="background-color: green" class="col-md-4">
+            COL4
+          </div>
+          <div style="background-color: red" class="col-md-4">
+            COL4
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-sm-2">Boot</div>
+      <div class="col-sm-2">Doc</div>
+      <div class="col-sm-2">Exam</div>
+      <div class="col-sm-2">The</div>
+      <div class="col-sm-2">Epxo</div>
+      <div class="col-sm-2">Blog</div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-6"></div>
+
+</div>
+
+<div style="background-color: #3f2c5b" class="row">
+  <h1 style="color: white">Bootstrap is the most popular HTML, CSS, and JS framework in the world for building responsive, mobile-first projects on the web.</h1>
+</div>
+<div class="row">
+  <h1>Easy to get started.
+  </h1>
+  <p> Quickly include Bootstrap's CSS and JS into any project. Use your favorite package manager, download the source, or use the Bootstrap CDN.</p>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Managed dependencies</h2>
+    <p>Include Bootstrap's source Sass and JavaScript files via Bower, Composer, Meteor, or npm. Package managed installs don't include documentation, but do include our Gruntfile and readme.</p>
+    <button class="btn">View Install Methods</button>
+
+
+  </div>
+  <div class="col-sm-6">
+
+    <h2>Bootstrap CDN</h2>
+    <p>When you just need to include Bootstrap's compiled CSS and JS, use the Bootstrap CDN, free from the Max CDN folks.</p>
+
+    <code>
+      <br>
+      &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"&gt;
+      <br>
+      &lt;script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous">&lt;/script&gt;
+      <br>
+      &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"&gt;&lt;/script&gt;
+      <br>
+        &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"&gt;&lt;/script&gt;
+    </code>
+
+
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12"><strong>Looking for something else?</strong> Compiled builds of Bootstrap's CSS and JS are also available.</div>
+  <div class="col-md-12">
+    <button class="btn">More download options</button>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="row">
+<div class="col-sm-6">
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-5"></div>
+  </div>
+</div>
+<div class="col-sm-6"></div>
+</div>
+
+-->
+
+
+<!--
+p.rojo
+<p class="rojo"></p>
+
+p#verde
+<p id="verde"></p>
+
+div.verde
+.verde
+<div class="verde"></div>
+
+img.imagen-responsiva*2
+<img src="" alt="" class="imagen-responsiva">
+<img src="" alt="" class="imagen-responsiva">
+
+h1>a
+<h1><a href=""></a></h1>
+
+ol>li*4
+
+<ol>
+  <li4></li4>
+  <li4></li4>
+  <li4></li4>
+  <li4></li4>
+</ol>
+
+h2.clase1.clase2.clase3
+<h2 class="clase1 clase2 clase3"></h2>
+
+.fila>.columna+.columna+h1
+
+<div class="fila">
+  <div class="columna"></div>
+  <div class="columna"></div>
+  <h1></h1>
+</div>
+
+
+-->

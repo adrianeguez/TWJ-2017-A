@@ -5,11 +5,14 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {NgModule} from "@angular/core";
 import { EstiloComponent } from './estilo/estilo.component';
+import {InicioComponent} from "./Componentes/inicio/inicio.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    EstiloComponent
+    EstiloComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +20,7 @@ import { EstiloComponent } from './estilo/estilo.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [InicioComponent]
 })
 
 
