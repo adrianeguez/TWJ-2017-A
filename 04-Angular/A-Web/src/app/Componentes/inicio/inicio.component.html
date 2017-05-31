@@ -7,20 +7,30 @@
 
   <div class="row">
 
-    <div class="col-sm-4" *ngFor="let usuario of arregloUsuarios">
-
-      <div class="card" style="width: 20rem;">
-        <div class="card-block">
-          <h4 class="card-title">{{usuario.nombre}} - {{usuario.conectado}}</h4>
-          <p class="card-text">{{usuario.nombre}} + {{usuario.apellido}}</p>
-          <a href="#" class="btn btn-primary btn-block">Ir a Perfil</a>
+    <div *ngFor="let usuario of arregloUsuarios">
+      <div class="col-sm-4" *ngIf="usuario.conectado">
+        <div class="card" style="width: 20rem;">
+          <div class="card-block">
+            <h4  class="card-title">{{usuario.nombre}} - {{usuario.conectado}}</h4>
+            <p class="card-text">{{usuario.nombre}} + {{usuario.apellido}}</p>
+            <a href="#" class="btn btn-primary btn-block">Ir a Perfil</a>
+          </div>
         </div>
       </div>
-
     </div>
 
   </div>
 
+  <h2>Planetas de Star Wars</h2>
+  <br>
+
+  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+
+  <div>
+    <ul *ngFor="let planeta of planetas">
+        <li>{{planeta.name}}</li>
+    </ul>
+  </div>
 
 
 <!--
@@ -29,17 +39,19 @@
       <li *ngFor="let usuario of arregloUsuarios">{{usuario.nombre}}</li>
     </ul>
   </div>
--->
 
-  <p *ngIf="true">TRUE</p>
+    <p *ngIf="true">TRUE</p>
 
   <p *ngIf="false">FALSE</p>
 
   <p *ngIf="undefined">UNDEFINED</p>
-  
+
   <p *ngIf="null">NULL</p>
   <p *ngIf="0">CERO</p>
   <p *ngIf="nombre">NOMBRE</p>
+-->
+
+
 
 
 
