@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
+import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +12,7 @@ export class InicioComponent implements OnInit {
 
   nombre: string = "Adrian";
 
-  planetas : PlanetaStarWars[] = []
+  planetas : PlanetaStarWarsInterface[] = []
 
   // planetas2 : Array<PlanetaStarWars> =  []
 
@@ -116,13 +117,7 @@ export class InicioComponent implements OnInit {
 }
 
 
-interface PlanetaStarWars{
-  name:string,
-  rotation_period:string,
-  orbital_period:string,
-  residents:string[],
-  imagenURL?:string
-}
+
 
 
 

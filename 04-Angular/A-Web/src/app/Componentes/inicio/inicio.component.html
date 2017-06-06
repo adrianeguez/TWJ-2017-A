@@ -9,7 +9,9 @@
     <div class="col-sm-4"
          *ngFor="let planeta of planetas;let i = index;">
 
-      <app-planeta-star-wars></app-planeta-star-wars>
+      <app-planeta-star-wars [planeta]="planeta">
+
+      </app-planeta-star-wars>
 
     </div>
   </div>
