@@ -27,8 +27,16 @@
   <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
 
   <div>
-    <ul *ngFor="let planeta of planetas">
-        <li>{{planeta.name}}</li>
+    <ul *ngFor="let planeta of planetas; let indice = index">
+
+        <li>{{indice}} - {{planeta.name}}
+          <img [src]="planeta.imagenURL" alt=""></li>
+
+      <ul>
+        <li *ngFor="let resident of planeta.residents">
+         {{resident}}
+        </li>
+      </ul>
     </ul>
   </div>
 
