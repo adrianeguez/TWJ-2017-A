@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
+import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +12,10 @@ export class InicioComponent implements OnInit {
 
   nombre: string = "Adrian";
 
-  planetas : PlanetaStarWars[] =[];
+  planetas : PlanetaStarWarsInterface[] = []
+
+  // planetas2 : Array<PlanetaStarWars> =  []
+
 
 
   //command + a  y luego command command+alt+l
@@ -81,6 +85,22 @@ export class InicioComponent implements OnInit {
 
           this.planetas = respuesta.results;
 
+          this.planetas = this.planetas.map(
+            (planeta)=>{
+
+              planeta.imagenURL = "/assets/Imagenes/"+planeta.name+'.jpg';
+
+              return planeta;
+
+
+            }
+          );
+
+          //Arreglo que tengo
+          // MUTARLE
+          // MISMO ARREGLO CON UN NUEVO ATRIBUTO
+          // IMAGEN
+
 
 
         },
@@ -97,9 +117,16 @@ export class InicioComponent implements OnInit {
 }
 
 
-interface PlanetaStarWars{
-  name:string,
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
