@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
+import {UsuarioClass} from "../../Classes/UsuarioClass";
 
 @Component({
   selector: 'app-inicio',
@@ -11,6 +12,8 @@ import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 export class InicioComponent implements OnInit {
 
   nombre: string = "Adrian";
+
+  nuevoUsuario:UsuarioClass = new UsuarioClass("");
 
   planetas : PlanetaStarWarsInterface[] = []
 
@@ -46,6 +49,9 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     //Esta listo el componente
+
+    console.log('Nuevo Usuario: ',this.nuevoUsuario);
+
   }
 
   cambiarNombre(): void {
@@ -114,8 +120,28 @@ export class InicioComponent implements OnInit {
       )
   }
 
-}
+  crearUsuario(){
+    console.log("Entro a crear Usuario");
 
+    let usuario:UsuarioClass = {
+      nombre:this.nuevoUsuario.nombre
+    };
+
+    this._http
+      .post("http://localhost:1337/Usuario",usuario)
+      .subscribe(
+        respuesta=>{
+          let respuestaJson = respuesta.json();
+          console.log('respuestaJson: ',respuestaJson);
+        },
+        error=>{
+          console.log("Error",error);
+        }
+      )
+
+  }
+
+}
 
 
 
