@@ -13,6 +13,8 @@ export class InicioComponent implements OnInit {
 
   nombre: string = "Adrian";
 
+  usuarios:UsuarioClass[] = [];
+
   nuevoUsuario:UsuarioClass = new UsuarioClass("");
 
   planetas : PlanetaStarWarsInterface[] = []
@@ -50,7 +52,21 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     //Esta listo el componente
 
-    console.log('Nuevo Usuario: ',this.nuevoUsuario);
+    this._http
+      .get("http://localhost:1337/Usuario/")
+      .subscribe(
+        respuesta=>{
+          let rjson:UsuarioClass[] = respuesta.json();
+
+          this.usuarios = rjson;
+
+          console.log("Usuarios: ",this.usuarios);
+        },
+        error=>{
+          console.log("Error: ",error)
+
+        }
+      )
 
   }
 
@@ -122,13 +138,14 @@ export class InicioComponent implements OnInit {
 
   crearUsuario(){
     console.log("Entro a crear Usuario");
-
-    let usuario:UsuarioClass = {
+    /*
+    let usuario = {
       nombre:this.nuevoUsuario.nombre
     };
+    */
 
     this._http
-      .post("http://localhost:1337/Usuario",usuario)
+      .post("http://localhost:1337/Usuario",this.nuevoUsuario)
       .subscribe(
         respuesta=>{
           let respuestaJson = respuesta.json();
@@ -138,6 +155,15 @@ export class InicioComponent implements OnInit {
           console.log("Error",error);
         }
       )
+
+  }
+
+  eliminarUsuario(usuario:UsuarioClass,indice:number){
+
+    console.log("Indice:",this.usuarios.indexOf(usuario));
+
+    console.log("Indice con index: ",indice);
+
 
   }
 
