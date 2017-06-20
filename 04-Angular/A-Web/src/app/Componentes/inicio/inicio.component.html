@@ -9,12 +9,6 @@
     <div class="col-sm-6">
       <div class="form-group">
 
-        <!-- | = option + 2 MAC = alt+124 -->
-        <pre>
-          {{ nuevoUsuario | json }}
-        </pre>
-
-
         <label class="col-form-label">Nombre Usuario:
         </label>
           <input class="form-control"
@@ -33,11 +27,19 @@
   <h3>Usuarios:</h3>
 
   <div class="row">
-    <div class="col-sm-3" *ngFor="let usuario of usuarios;let indice = index;">
-      <h3>{{usuario.nombre}}</h3>
-      <button class="btn btn-danger" (click)="eliminarUsuario(usuario,indice)"> Eliminar usuario</button>
+    <div class="col-sm-6" *ngFor="let usuario of usuarios;let indice = index;">
+      <div class="margin-usuarios">
+        <h3>{{usuario.nombre}}</h3>
+        <button class="btn btn-danger" (click)="eliminarUsuario(usuario,indice)"> Eliminar usuario</button>
+      </div>
+
     </div>
   </div>
+
+
+<!--
+
+
 
 
 
@@ -55,10 +57,6 @@
 
     </div>
   </div>
-
-
-<!--
-
 
 
   <h2>Usuarios Conectados</h2>
