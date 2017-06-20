@@ -219,6 +219,7 @@ export class InicioComponent implements OnInit {
           let indice = this.usuarios.indexOf(usuario);
 
           this.usuarios[indice].nombre = nombre;
+          this.usuarios[indice].editar = !this.usuarios[indice].editar;
 
         },
         err=>{
