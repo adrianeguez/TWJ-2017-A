@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Http} from "@angular/http";
 
@@ -10,6 +10,8 @@ import {Http} from "@angular/http";
 export class UsuarioComponent implements OnInit {
 
   @Input() usuarioLocal:UsuarioClass;
+  @Output() usuarioborrado = new EventEmitter();
+
 
   constructor(private _http:Http) { }
   ngOnInit() {
@@ -20,6 +22,7 @@ export class UsuarioComponent implements OnInit {
     this._http.delete("http://localhost:1337/Usuario/"+usuario.id)
       .subscribe(
         respuesta=>{
+          this.usuarioborrado.emit(usuario);
           //this.usuarios.splice(this.usuarios.indexOf(usuario),1)
         },
         error=>{
@@ -45,6 +48,8 @@ export class UsuarioComponent implements OnInit {
         res=>{
           //el servidor nos dice que se actualizo
           console.log("El usuario se actualizo",res);
+          this.usuarioLocal.nombre = nombre
+          this.usuarioLocal.editar = !this.usuarioLocal.editar;
 
           //let indice = this.usuarios.indexOf(usuario);
 

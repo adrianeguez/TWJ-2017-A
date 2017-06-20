@@ -184,6 +184,14 @@ export class InicioComponent implements OnInit {
 
   }
 
+  eliminarUsuario(usuario:UsuarioClass){
+
+    let indice = this.usuarios.indexOf(usuario);
+
+    this.usuarios.splice(indice,1);
+
+  }
+
 
 }
 
