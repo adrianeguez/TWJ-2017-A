@@ -7,6 +7,7 @@ import {NgModule} from "@angular/core";
 import { EstiloComponent } from './estilo/estilo.component';
 import {InicioComponent} from "./Componentes/inicio/inicio.component";
 import { PlanetaStarWarsComponent } from './Componentes/planeta-star-wars/planeta-star-wars.component';
+import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PlanetaStarWarsComponent } from './Componentes/planeta-star-wars/planet
     AppComponent,
     EstiloComponent,
     InicioComponent,
-    PlanetaStarWarsComponent
+    PlanetaStarWarsComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

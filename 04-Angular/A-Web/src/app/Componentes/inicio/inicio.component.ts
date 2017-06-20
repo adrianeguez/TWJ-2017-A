@@ -1,6 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
+
+
+
 import 'rxjs/add/operator/map';
+
+
+
+
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 
@@ -58,7 +65,24 @@ export class InicioComponent implements OnInit {
         respuesta=>{
           let rjson:UsuarioClass[] = respuesta.json();
 
-          this.usuarios = rjson;
+          this.usuarios = rjson.map(
+            (usuario:UsuarioClass)=>{
+              //cambiar el usuario
+              usuario.editar = false;
+              return usuario;
+            }
+          );
+
+          /*
+          //anadir propiedades a objetos
+
+           let objeto1:any = {
+           prop1:1,
+           prop2:2
+           }
+
+           objeto1.prop3 = 3;
+           */
 
           console.log("Usuarios: ",this.usuarios);
         },
@@ -150,6 +174,7 @@ export class InicioComponent implements OnInit {
         respuesta=>{
           let respuestaJson = respuesta.json()
           this.usuarios.push(respuestaJson);
+          this.nuevoUsuario = new UsuarioClass();
           console.log('respuestaJson: ',respuestaJson);
         },
         error=>{
@@ -159,28 +184,16 @@ export class InicioComponent implements OnInit {
 
   }
 
-  eliminarUsuario(usuario:UsuarioClass,indice:number){
+  eliminarUsuario(usuario:UsuarioClass){
 
-    this._http.delete("http://localhost:1337/Usuario/"+usuario.id)
-      .subscribe(
-        respuesta=>{
-          this.usuarios.splice(this.usuarios.indexOf(usuario),1)
-        },
-        error=>{
-          console.log("Error",error);
-        }
-      )
+    let indice = this.usuarios.indexOf(usuario);
 
-
-
-
-
+    this.usuarios.splice(indice,1);
 
   }
 
+
 }
-
-
 
 
 
