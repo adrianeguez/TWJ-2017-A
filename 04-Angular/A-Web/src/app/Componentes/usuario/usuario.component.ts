@@ -20,7 +20,7 @@ export class UsuarioComponent implements OnInit {
     this._http.delete("http://localhost:1337/Usuario/"+usuario.id)
       .subscribe(
         respuesta=>{
-          this.usuarios.splice(this.usuarios.indexOf(usuario),1)
+          //this.usuarios.splice(this.usuarios.indexOf(usuario),1)
         },
         error=>{
           console.log("Error",error);
@@ -46,10 +46,10 @@ export class UsuarioComponent implements OnInit {
           //el servidor nos dice que se actualizo
           console.log("El usuario se actualizo",res);
 
-          let indice = this.usuarios.indexOf(usuario);
+          //let indice = this.usuarios.indexOf(usuario);
 
-          this.usuarios[indice].nombre = nombre;
-          this.usuarios[indice].editar = !this.usuarios[indice].editar;
+          //this.usuarios[indice].nombre = nombre;
+          //this.usuarios[indice].editar = !this.usuarios[indice].editar;
 
         },
         err=>{
