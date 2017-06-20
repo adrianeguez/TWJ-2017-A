@@ -30,51 +30,9 @@
     <div class="col-sm-6" *ngFor="let usuario of usuarios;let indice = index;">
       <div class="margin-usuarios">
 
-        <div class="animated rollIn" *ngIf="!usuario.editar">
-          <h3>{{usuario.nombre}}</h3>
-
-          <button class="btn btn-warning"
-                  (click)="usuario.editar = !usuario.editar"> Editar Usuario</button>
-        </div>
-
-        <div class="animated bounceIn" *ngIf="usuario.editar">
-          <h4>Actualizar</h4>
+        <app-usuario [usuarioLocal]="usuario"></app-usuario>
 
 
-          <div class="form-group">
-
-            <!--
-
-<div class="form-group">
-
-  <label class="col-form-label">Nombre Usuario:
-  </label>
-  <input class="form-control"
-         placeholder="Ingrese nuevo Nombre"
-         [(ngModel)]="usuario.nombre" type="text">
-</div>
--->
-
-            <label class="col-form-label">Nombre Usuario:
-            </label>
-            <input class="form-control"
-                   placeholder="Ingrese nuevo Nombre"
-                   type="text"
-                   #usuarioNombre
-            >
-          </div>
-
-          <button class="btn btn-primary"
-                  (click)="actualizarUsuario(
-                  usuario,usuarioNombre.value)"> Actualizar usuario</button>
-
-
-
-          <button class="btn btn-danger" (click)="eliminarUsuario(usuario,indice)"> Eliminar usuario</button>
-
-          <button class="btn btn-secondary"
-                  (click)="usuario.editar = !usuario.editar"> Cancelar Usuario</button>
-        </div>
 
       </div>
 
