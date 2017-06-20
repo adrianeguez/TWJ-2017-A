@@ -198,10 +198,10 @@ export class InicioComponent implements OnInit {
 
   }
 
-  actualizarUsuario(usuario:UsuarioClass){
+  actualizarUsuario(usuario:UsuarioClass,nombre:string){
 
     let actualizacion = {
-      nombre:usuario.nombre
+      nombre:nombre
     };
 
     this._http.put(
@@ -215,6 +215,11 @@ export class InicioComponent implements OnInit {
         res=>{
           //el servidor nos dice que se actualizo
           console.log("El usuario se actualizo",res);
+
+          let indice = this.usuarios.indexOf(usuario);
+
+          this.usuarios[indice].nombre = nombre;
+
         },
         err=>{
           //hubo algun problema (Red servidor)
