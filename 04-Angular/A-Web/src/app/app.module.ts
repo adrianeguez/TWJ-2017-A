@@ -13,6 +13,9 @@ import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 import {ModuloDeRutas} from "./routes";
 
 import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
+import { Pagina21Component } from './Componentes/pagina21/pagina21.component';
+import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
+import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
     InicioComponent,
     PlanetaStarWarsComponent,
     UsuarioComponent,
-    Pagina2Component
+    Pagina2Component,
+    Pagina21Component,
+    Pagina22Component,
+    Pagina23Component
   ],
   imports: [
     BrowserModule,
