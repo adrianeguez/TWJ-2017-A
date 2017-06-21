@@ -8,6 +8,8 @@ import { EstiloComponent } from './estilo/estilo.component';
 import {InicioComponent} from "./Componentes/inicio/inicio.component";
 import { PlanetaStarWarsComponent } from './Componentes/planeta-star-wars/planeta-star-wars.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
+import {RutasAppModule} from "./routes";
+import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
 
 
 @NgModule({
@@ -16,17 +18,19 @@ import { UsuarioComponent } from './Componentes/usuario/usuario.component';
     EstiloComponent,
     InicioComponent,
     PlanetaStarWarsComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    Pagina2Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    //RutasAppModule
   ],
   providers: [
     // http
   ],
-  bootstrap: [InicioComponent]
+  bootstrap: [AppComponent]
 })
 
 

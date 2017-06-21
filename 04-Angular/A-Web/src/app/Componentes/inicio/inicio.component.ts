@@ -184,9 +184,15 @@ export class InicioComponent implements OnInit {
 
   }
 
-  eliminarUsuario(usuario:UsuarioClass){
+  // este metodo se ejecuta con un evento del componente hijo
+
+  //  (usuarioBorrado)="eliminarUsuario($event)"
+
+  eliminarUsuarioFrontEnd(usuario:UsuarioClass){
 
     let indice = this.usuarios.indexOf(usuario);
+
+    // Eliminando del arreglo
 
     this.usuarios.splice(indice,1);
 
