@@ -17,7 +17,21 @@ export const routes: Routes = [
   },
   {
     path:"pagina2",
-    component:Pagina2Component
+    component:Pagina2Component,
+    children:[
+      {
+        path:"pagina21",
+        component:InicioComponent
+      },
+      {
+        path:"pagina22",
+        component:InicioComponent
+      },
+      {
+        path:"pagina23",
+        component:InicioComponent
+      }
+    ]
   }
 ];
 

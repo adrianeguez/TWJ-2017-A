@@ -8,7 +8,10 @@ import { EstiloComponent } from './estilo/estilo.component';
 import {InicioComponent} from "./Componentes/inicio/inicio.component";
 import { PlanetaStarWarsComponent } from './Componentes/planeta-star-wars/planeta-star-wars.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
-import {RutasAppModule} from "./routes";
+
+
+import {ModuloDeRutas} from "./routes";
+
 import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
 
 
@@ -25,7 +28,7 @@ import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    //RutasAppModule
+    ModuloDeRutas
   ],
   providers: [
     // http

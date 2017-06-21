@@ -2,10 +2,20 @@
 
 <h1>App component</h1>
 
+<h3>Header</h3>
 
+<ul>
+  <li>
+    <a [routerLink]="['inicio']">Inicio</a>
+  </li>
+  <li>
+    <a [routerLink]="['pagina2']">Pagina2</a>
+  </li>
+</ul>
 
+<router-outlet></router-outlet>
 
-
+<h3>Footer</h3>
 
 <!-- no usar : <a href="{{url}}">
 
