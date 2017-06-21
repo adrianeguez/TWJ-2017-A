@@ -10,23 +10,36 @@ import { PlanetaStarWarsComponent } from './Componentes/planeta-star-wars/planet
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 
 
+import {ModuloDeRutas} from "./routes";
+
+import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
+import { Pagina21Component } from './Componentes/pagina21/pagina21.component';
+import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
+import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     EstiloComponent,
     InicioComponent,
     PlanetaStarWarsComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    Pagina2Component,
+    Pagina21Component,
+    Pagina22Component,
+    Pagina23Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModuloDeRutas
   ],
   providers: [
     // http
   ],
-  bootstrap: [InicioComponent]
+  bootstrap: [AppComponent]
 })
 
 

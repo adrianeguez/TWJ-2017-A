@@ -10,6 +10,7 @@ import {Http} from "@angular/http";
 export class UsuarioComponent implements OnInit {
 
   @Input() usuarioLocal:UsuarioClass;
+
   @Output() usuarioborrado = new EventEmitter();
 
 
@@ -17,12 +18,22 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
     console.log(this.usuarioLocal);
   }
-  eliminarUsuario(usuario:UsuarioClass,indice:number){
+  eliminarUsuarioBackend(usuario:UsuarioClass,indice:number){
 
-    this._http.delete("http://localhost:1337/Usuario/"+usuario.id)
+    this._http.delete("http:  //localhost:1337/Usuario/"+usuario.id)
       .subscribe(
         respuesta=>{
+
+
+
+
           this.usuarioborrado.emit(usuario);
+
+
+
+
+
+
           //this.usuarios.splice(this.usuarios.indexOf(usuario),1)
         },
         error=>{
