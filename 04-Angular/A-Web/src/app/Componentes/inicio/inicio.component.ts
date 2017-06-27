@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
+import {Form} from "@angular/forms";
 
 @Component({
   selector: 'app-inicio',
@@ -160,13 +161,20 @@ export class InicioComponent implements OnInit {
       )
   }
 
-  crearUsuario(){
+  crearUsuario(UsuarioFormulario){
+
     console.log("Entro a crear Usuario");
+
+    console.log(UsuarioFormulario)
+
+    console.log(this.nuevoUsuario);
+
     /*
     let usuario = {
       nombre:this.nuevoUsuario.nombre
     };
     */
+    /*
 
     this._http
       .post("http://localhost:1337/Usuario",this.nuevoUsuario)
@@ -182,6 +190,7 @@ export class InicioComponent implements OnInit {
         }
       )
 
+    */
   }
 
   // este metodo se ejecuta con un evento del componente hijo
