@@ -10,7 +10,10 @@ module.exports = {
   attributes: {
 
     nombre:{
-      type:'integer'
+      type:'string'
+    },
+    correo:{
+      type:'email'
     },
     duenosMascotas:{
       collection:"UsuarioMascota",

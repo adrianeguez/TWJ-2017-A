@@ -165,9 +165,11 @@ export class InicioComponent implements OnInit {
 
     console.log("Entro a crear Usuario");
 
-    console.log(UsuarioFormulario)
+    console.log("Formulario:",UsuarioFormulario.value)
 
-    console.log(this.nuevoUsuario);
+    console.log("Objeto dentro del Componente (ngModel)",this.nuevoUsuario);
+
+
 
     /*
     let usuario = {

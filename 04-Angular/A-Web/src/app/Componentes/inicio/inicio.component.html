@@ -22,14 +22,20 @@
                  minlength="3"
                  maxlength="15"
 
-                 placeholder="Ingrese nuevo Nombre" name="nombre" type="email"
-                 pattern="[A-Za-z]{3}"
+                 placeholder="Ingrese nuevo Nombre" name="nombre"
+
+                 type="email"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
 
                  [(ngModel)]="nuevoUsuario.nombre"
                  #nombre="ngModel"
                  #nombreTAG
           >
           <br>
+
+
+
+
 
           <div *ngIf="nombre.errors?.minlength&&nombre.touched==true" class="alert alert-warning animated bounceIn" role="alert">
             <strong>¡Cuidado!</strong> Debes de llenar el campo desde 3 hasta 15 caracteres.
