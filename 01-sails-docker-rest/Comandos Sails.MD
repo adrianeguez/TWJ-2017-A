@@ -28,3 +28,12 @@ Donde **Aplicacion** es el nombre de la carpeta y de la aplicacion que vamos a c
 ```
 
 - Debemos de estar **dentro de la carpeta** del proyecto de sails
+
+
+## sails generate controller 
+
+```
+>> sails generate controller <nombreControlador>
+```
+
+- Debemos de estar **dentro de la carpeta** del proyecto de sails
