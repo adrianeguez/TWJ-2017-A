@@ -10,8 +10,24 @@
  */
 
 module.exports.bootstrap = function(cb) {
+  console.log("Antes de levantar");
 
-  // It's very important to trigger this callback method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+  Usuario
+    .findOne({
+      correo:"marcelo@marcelo.com"
+    })
+    .exec(function (err,usuarioEncontrado) {
+      if(err) cb("error");
+      if(!usuarioEncontrado){
+        cb("No existe el usuario");
+      }else{
+        if(usuarioEncontrado.password=="123456"){
+          console.log("No aplicado el hash")
+          cb();
+        }else{
+          console.log("Aplicar el hash")
+          cb();
+        }
+      }
+    });
 };
