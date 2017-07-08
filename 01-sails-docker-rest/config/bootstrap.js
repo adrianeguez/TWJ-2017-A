@@ -9,6 +9,9 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 
+
+var Passwords = require('machinepack-passwords');
+
 module.exports.bootstrap = function(cb) {
   console.log("Antes de levantar");
 
@@ -23,7 +26,37 @@ module.exports.bootstrap = function(cb) {
       }else{
         if(usuarioEncontrado.password=="123456"){
           console.log("No aplicado el hash")
-          cb();
+
+          Passwords.encryptPassword({
+            password: usuarioEncontrado.password,
+          }).exec({
+            error: function (err) {
+              cb("Error de encripcion");
+            },
+            success: function (passwordMarcelo) {
+
+              Usuario
+                .update(
+                  {
+                    id:usuarioEncontrado.id
+                  },
+                  {
+                    password:passwordMarcelo
+                  }
+                )
+                .exec(function (err,marceloActualizado) {
+                  if(err) return cb(err);
+                  if(!marceloActualizado){
+                    cb("Marcelo no existe")
+                  }else{
+                    console.log("Sails levantado");
+                    cb();
+                  }
+
+                })
+            },
+          });
+
         }else{
           console.log("Aplicar el hash")
           cb();
