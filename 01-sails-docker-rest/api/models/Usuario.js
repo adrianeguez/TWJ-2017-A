@@ -48,7 +48,6 @@ module.exports = {
 
   },
   beforeUpdate:function (valorAActualizar,cb) {
-
     if(valorAActualizar.password){
     Passwords.encryptPassword({
       password: valorAActualizar.password
