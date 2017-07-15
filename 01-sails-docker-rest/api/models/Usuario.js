@@ -26,19 +26,25 @@ module.exports = {
   },
   beforeCreate:function (usuario,cb) {
 
-    Passwords.encryptPassword({
-      password: usuario.password
-    })
-      .exec(
-        {
-        error: function (err) {
-          cb("Error en hash password",err)
-      },
-        success: function (hashedPassword) {
-          usuario.password = hashedPassword;
-          cb()
-      },
-    });
+    if(usuario.password){
+      Passwords.encryptPassword({
+        password: usuario.password
+      })
+        .exec(
+          {
+            error: function (err) {
+              cb("Error en hash password",err)
+            },
+            success: function (hashedPassword) {
+              usuario.password = hashedPassword;
+              cb()
+            },
+          });
+    }else{
+      cb()
+    }
+
+
   }
 
 };
