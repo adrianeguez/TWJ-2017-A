@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
+import {Form} from "@angular/forms";
 
 @Component({
   selector: 'app-inicio',
@@ -160,16 +161,18 @@ export class InicioComponent implements OnInit {
       )
   }
 
-  crearUsuario(){
+  crearUsuario(UsuarioFormulario){
+
     console.log("Entro a crear Usuario");
-    /*
-    let usuario = {
-      nombre:this.nuevoUsuario.nombre
-    };
-    */
+
+    console.log("Formulario:",UsuarioFormulario.value)
+
+    console.log("Objeto dentro del Componente (ngModel)",this.nuevoUsuario);
+
+
 
     this._http
-      .post("http://localhost:1337/Usuario",this.nuevoUsuario)
+      .post("http://localhost:1337/Usuario",UsuarioFormulario.value)
       .subscribe(
         respuesta=>{
           let respuestaJson = respuesta.json()

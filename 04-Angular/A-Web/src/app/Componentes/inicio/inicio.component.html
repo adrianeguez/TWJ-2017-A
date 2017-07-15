@@ -5,24 +5,73 @@
 
   <h2>Usuarios</h2>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="form-group">
 
-        <label class="col-form-label">Nombre Usuario:
-        </label>
+
+  <form (ngSubmit)="crearUsuario(UsuarioFormulario)"
+        #UsuarioFormulario="ngForm"
+        novalidate>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+
+          <label class="col-form-label">Nombre Usuario:
+          </label>
           <input class="form-control"
-                 placeholder="Ingrese nuevo Nombre"
-                 [(ngModel)]="nuevoUsuario.nombre" type="text">
+
+                 required
+                 minlength="3"
+                 maxlength="15"
+
+                 placeholder="Ingrese nuevo Nombre" name="nombre"
+
+                 type="text"
+
+                 [(ngModel)]="nuevoUsuario.nombre"
+                 #nombre="ngModel"
+                 #nombreTAG
+          >
+          <br>
+
+
+
+
+
+          <div *ngIf="nombre.errors?.minlength&&nombre.touched==true" class="alert alert-warning animated bounceIn" role="alert">
+            <strong>¡Cuidado!</strong> Debes de llenar el campo desde 3 hasta 15 caracteres.
+          </div>
+
+          <div
+            *ngIf="nombre.errors?.required&&nombre.touched==true"
+
+            class="alert alert-danger animated bounceIn" role="alert">
+            <strong>¡Peligro!</strong> Este campo es requerido.
+          </div>
+
+          <pre>
+            Errores:
+            {{nombre.errors | json}}
+            Touched:
+            {{nombre.touched}}
+            Dirty:
+            {{nombre.dirty}}
+            Pristine:
+            {{nombre.pristine}}
+          </pre>
+        </div>
+
+        <button class="btn btn-success" [disabled]="!UsuarioFormulario.valid" type="submit">
+          Crear usuario
+        </button>
+
+        <button class="btn btn-warning" type="button">
+          Cancelar
+        </button>
+
       </div>
-
-      <button class="btn btn-success"
-              (click)="crearUsuario()">
-        Crear usuario
-      </button>
-
     </div>
-  </div>
+  </form>
+
+
 
   <h3>Usuarios:</h3>
 
