@@ -13,8 +13,9 @@
 var Passwords = require('machinepack-passwords');
 
 module.exports.bootstrap = function(cb) {
-  console.log("Antes de levantar");
 
+  /*
+  console.log("Antes de levantar");
   Usuario
     .findOne({
       correo:"marcelo@marcelo.com"
@@ -63,4 +64,7 @@ module.exports.bootstrap = function(cb) {
         }
       }
     });
+  */
+  cb() //Aqui se levanta el sails
+
 };
