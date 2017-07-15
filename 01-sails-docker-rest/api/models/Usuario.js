@@ -5,8 +5,8 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+var Passwords = require('machinepack-passwords');
 module.exports = {
-
   attributes: {
 
     nombre:{
@@ -23,6 +23,22 @@ module.exports = {
       via:"idUsuario"
     }
 
+  },
+  beforeCreate:function (usuario,cb) {
+
+    Passwords.encryptPassword({
+      password: usuario.password
+    })
+      .exec(
+        {
+        error: function (err) {
+          cb("Error en hash password",err)
+      },
+        success: function (hashedPassword) {
+          usuario.password = hashedPassword;
+          cb()
+      },
+    });
   }
 
 };
