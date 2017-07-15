@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenService} from "../../token.service";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _TokenService:TokenService) { }
 
   ngOnInit() {
+    console.log(this._TokenService.token)
   }
 
 }
