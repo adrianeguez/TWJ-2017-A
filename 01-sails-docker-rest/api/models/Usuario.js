@@ -16,7 +16,8 @@ module.exports = {
       type:'email'
     },
     password:{
-      type:'string'
+      type:'string',
+      required:true
     },
     duenosMascotas:{
       collection:"UsuarioMascota",
@@ -26,7 +27,7 @@ module.exports = {
   },
   beforeCreate:function (usuario,cb) {
 
-    if(usuario.password){
+    //if(usuario.password){
       Passwords.encryptPassword({
         password: usuario.password
       })
@@ -40,8 +41,30 @@ module.exports = {
               cb()
             },
           });
+    //}else{
+      //cb()
+    //}
+
+
+  },
+  beforeUpdate:function (valorAActualizar,cb) {
+
+    if(usuario.password){
+    Passwords.encryptPassword({
+      password: valorAActualizar.password
+    })
+      .exec(
+        {
+          error: function (err) {
+            cb("Error en hash password",err)
+          },
+          success: function (hashedPassword) {
+            valorAActualizar.password = hashedPassword;
+            cb()
+          },
+        });
     }else{
-      cb()
+    cb()
     }
 
 
