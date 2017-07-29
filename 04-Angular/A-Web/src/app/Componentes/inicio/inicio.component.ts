@@ -171,8 +171,7 @@ export class InicioComponent implements OnInit {
 
 
 
-    this._http
-      .post("http://localhost:1337/Usuario",UsuarioFormulario.value)
+
       .subscribe(
         respuesta=>{
           let respuestaJson = respuesta.json()

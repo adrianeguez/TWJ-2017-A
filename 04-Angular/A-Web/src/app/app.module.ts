@@ -19,6 +19,7 @@ import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from './Componentes/login/login.component';
 import {TokenService} from "./token.service";
+import {UsuarioService} from "./services/usuario.service";
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {TokenService} from "./token.service";
     NgbModule.forRoot()
   ],
   providers: [
-    TokenService// servicios - singletons
+    TokenService,
+    UsuarioService// servicios - singletons
   ],
   bootstrap: [AppComponent]
 })
