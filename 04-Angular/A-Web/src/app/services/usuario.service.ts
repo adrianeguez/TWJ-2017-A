@@ -15,7 +15,8 @@ export class UsuarioService {
 
   crear(usuario:UsuarioClass){
     let datosAEnviar = {
-      nombre:usuario.nombre
+      nombre:usuario.nombre,
+      password:usuario.password
     };
     return this._http
       .post(this.url,datosAEnviar)
@@ -58,7 +59,5 @@ export class UsuarioService {
         return res.json()
       })
   }
-
-
 
 }
