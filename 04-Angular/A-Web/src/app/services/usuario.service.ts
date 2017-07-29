@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import {UsuarioClass} from "../Classes/UsuarioClass";
 import 'rxjs/add/operator/map';
+import {MasterUrlService} from "./master-url.service";
 
 
 @Injectable()
 export class UsuarioService {
 
-  url = 'http://localhost:1337/Usuario';
+  url:string;
+  modelo = 'Usuario';
 
-  constructor(private _http:Http) {
-
+  constructor(private _http:Http,
+              private _masterUrlService:MasterUrlService) {
+    this.url = this._masterUrlService.url + this.modelo;
   }
 
   crear(usuario:UsuarioClass){

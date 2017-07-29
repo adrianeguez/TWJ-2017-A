@@ -20,6 +20,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from './Componentes/login/login.component';
 import {TokenService} from "./token.service";
 import {UsuarioService} from "./services/usuario.service";
+import {MasterUrlService} from "./services/master-url.service";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {UsuarioService} from "./services/usuario.service";
   ],
   providers: [
     TokenService,
-    UsuarioService// servicios - singletons
+    UsuarioService,
+    MasterUrlService// servicios - singletons
   ],
   bootstrap: [AppComponent]
 })

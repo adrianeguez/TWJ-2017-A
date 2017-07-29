@@ -23,7 +23,7 @@ export class UsuarioComponent implements OnInit {
       .borrar(usuario)
       .subscribe(
         (usuarioBorrado:UsuarioClass) => {
-          this.usuarioborrado.emit(usuarioBorrado);
+          this.usuarioborrado.emit(usuario);
         },
         error => {
           console.log("Error",error);
