@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Form} from "@angular/forms";
+import {UsuarioService} from "../../services/usuario.service";
 
 @Component({
   selector: 'app-inicio',
@@ -52,7 +53,8 @@ export class InicioComponent implements OnInit {
       conectado:true
     }]
 
-  constructor(private _http:Http) {
+  constructor(private _usuarioService:UsuarioService) {
+
     //Inicia la clase
     //PERO EL COMPONENTE NO ESTA LISTO!!!!
   }
@@ -60,20 +62,15 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     //Esta listo el componente
 
-    this._http
-      .get("http://localhost:1337/Usuario/")
+    this._usuarioService.buscarTodos()
       .subscribe(
-        respuesta=>{
-          let rjson:UsuarioClass[] = respuesta.json();
-
-          this.usuarios = rjson.map(
+        (usuarios:UsuarioClass[]) => {
+          this.usuarios = usuarios.map(
             (usuario:UsuarioClass)=>{
-              //cambiar el usuario
               usuario.editar = false;
               return usuario;
             }
           );
-
           /*
           //anadir propiedades a objetos
 
@@ -84,12 +81,9 @@ export class InicioComponent implements OnInit {
 
            objeto1.prop3 = 3;
            */
-
-          console.log("Usuarios: ",this.usuarios);
         },
         error=>{
           console.log("Error: ",error)
-
         }
       )
 
@@ -117,6 +111,7 @@ export class InicioComponent implements OnInit {
   }
 
   cargarPlanetas(){
+    /*
     this._http
       .get("http://swapi.co/api/planets")
       //.map(response=>response.json()
@@ -159,32 +154,32 @@ export class InicioComponent implements OnInit {
         }
 
       )
+      */
   }
 
   crearUsuario(UsuarioFormulario){
 
-    console.log("Entro a crear Usuario");
-
-    console.log("Formulario:",UsuarioFormulario.value)
-
-    console.log("Objeto dentro del Componente (ngModel)",this.nuevoUsuario);
-
-
-
-    this._http
-      .post("http://localhost:1337/Usuario",UsuarioFormulario.value)
+    let usuarioACrearse:UsuarioClass =
+      new UsuarioClass(UsuarioFormulario.value.nombre,"123456");
+    /*
+    let usuario = {
+      nombre:"valor",
+      id:undefined,
+      createdAt:undefined,
+      updatedAt:undefined,
+      editar:undefined
+    }
+    */
+    this._usuarioService.crear(usuarioACrearse)
       .subscribe(
-        respuesta=>{
-          let respuestaJson = respuesta.json()
-          this.usuarios.push(respuestaJson);
+        (usuarioCreado:UsuarioClass) => {
+          this.usuarios.push(usuarioCreado);
           this.nuevoUsuario = new UsuarioClass();
-          console.log('respuestaJson: ',respuestaJson);
         },
-        error=>{
+        error => {
           console.log("Error",error);
         }
       )
-
   }
 
   // este metodo se ejecuta con un evento del componente hijo
@@ -192,11 +187,7 @@ export class InicioComponent implements OnInit {
   //  (usuarioBorrado)="eliminarUsuario($event)"
 
   eliminarUsuarioFrontEnd(usuario:UsuarioClass){
-
     let indice = this.usuarios.indexOf(usuario);
-
-    // Eliminando del arreglo
-
     this.usuarios.splice(indice,1);
 
   }
