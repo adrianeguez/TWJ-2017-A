@@ -21,6 +21,7 @@ import { LoginComponent } from './Componentes/login/login.component';
 import {TokenService} from "./token.service";
 import {UsuarioService} from "./services/usuario.service";
 import {MasterUrlService} from "./services/master-url.service";
+import {AuthService} from "./services/auth.service";
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {MasterUrlService} from "./services/master-url.service";
   providers: [
     TokenService,
     UsuarioService,
-    MasterUrlService// servicios - singletons
+    MasterUrlService,
+    AuthService// servicios - singletons
   ],
   bootstrap: [AppComponent]
 })
