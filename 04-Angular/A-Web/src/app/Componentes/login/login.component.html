@@ -1,3 +1,28 @@
-<p>
-  login works!
-</p>
+
+<h1>Login</h1>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <h2>Ingrese credenciales</h2>
+    <br>
+    <label>Correo</label>
+    <input type="email" name="correo"
+           [(ngModel)]="correo">
+    <br>
+    <label>Password</label>
+    <input type="password" name="password"
+           [(ngModel)]="password">
+    <br>
+    <button class="btn-block btn-primary btn"
+    (click)="logearse()">
+      Ingresar
+    </button>
+
+    <button class="btn-block btn-danger btn"
+            (click)="desLogearse()">
+      Salir
+    </button>
+
+  </div>
+  <div class="col-sm-4"></div>
+</div>
