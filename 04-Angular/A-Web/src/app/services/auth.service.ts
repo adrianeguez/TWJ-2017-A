@@ -36,6 +36,7 @@ export class AuthService {
   }
 
   hacerLogout(){
+    this._tokenService.token = "";
     this.estaLogeado = false;
   }
 
